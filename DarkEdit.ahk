@@ -1,8 +1,6 @@
 #singleinstance, force
 #MaxHotkeysPerInterval 200 ;Necessary to prevent a warning dialog while scrolling. 
 
-#include Edit.ahk
-
 OnMessage(0x200,"WM_MOUSEMOVE") 
 
 all=0

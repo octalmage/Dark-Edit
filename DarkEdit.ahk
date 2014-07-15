@@ -1,5 +1,5 @@
 #singleinstance, force
-
+#MaxHotkeysPerInterval 200 ;Necessary to prevent a warning dialog while scrolling. 
 
 #include Edit.ahk
 
@@ -250,7 +250,7 @@ WM_MOUSEMOVE(wParam,lParam)
 		
 	If ctrl in Static1,Static2,Static3,Static4
 	{
-	test=%ctrl%
+		test=%ctrl%
 		;GuiControl, +c00FF00, %octrl%  
 		GuiControl, +cwhite, %test%  
 		octrl:=ctrl

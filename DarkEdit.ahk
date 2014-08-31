@@ -236,12 +236,8 @@ ToggleMenu( hWin )
 
 WM_MOUSEMOVE(wParam,lParam)
 {
-	global thisid
 	global octrl
  	MouseGetPos,,,,ctrl
-  	;Only change over certain controls, use Windows Spy to find them.
-
-  	;tooltip, %ctrl%
 
 	if (ctrl=octrl)
 	{

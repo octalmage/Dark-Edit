@@ -43,7 +43,6 @@ gosub SetAttach					;comment this line to disable Attach
 Gui, Show,, DarkEdit
 gui, +lastfound
 thisid:=winexist()
-
 if starttop
 	controlsend, Edit1, {ctrl down}{home}{ctrl up},  ahk_id %thisid%
 	
@@ -239,18 +238,26 @@ WM_MOUSEMOVE(wParam,lParam)
 {
 	global thisid
 	global octrl
-  MouseGetPos,,,,ctrl
-  ;Only change over certain controls, use Windows Spy to find them.
+ 	MouseGetPos,,,,ctrl
+  	;Only change over certain controls, use Windows Spy to find them.
 
- ; tooltip, %ctrl% %octrl%
+  	;tooltip, %ctrl%
+
 	if (ctrl=octrl)
+	{
 		return
-		
+	}
+
 	If ctrl in Static1,Static2,Static3,Static4
 	{
-		test=%ctrl%
-		;GuiControl, +c00FF00, %octrl%  
-		GuiControl, +cwhite, %test%  
+		octrl:=ctrl
+		GuiControl, +cwhite, %ctrl%
+		GuiControl, MoveDraw, %ctrl%
+	}
+	else
+	{
+		GuiControl, +c00FF00, %octrl%
+		GuiControl, MoveDraw, %octrl%
 		octrl:=ctrl
 	}
 	
